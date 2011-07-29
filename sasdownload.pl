@@ -23,7 +23,7 @@ my $sources = {
 	},
 	yamapng => {
 		url => sub {
-			'http://vec.maps.yandex.net'
+			'http://vec01.maps.yandex.net'
 				. "/tiles?l=map&v=2.17.1&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3395',
@@ -32,7 +32,7 @@ my $sources = {
 	yasat => {
 		url => sub {
 			'http://sat01.maps.yandex.net'
-				. "/tiles?l=sat&v=1.21.0&x=$_[0]&y=$_[1]&z=$_[2]"
+				. "/tiles?l=sat&v=1.22.0&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3395',
 		format => 'jpg',
@@ -40,7 +40,7 @@ my $sources = {
 	sat => {
 		url => sub {
 			'http://khm.google.com'
-				. "/kh/v=79&hl=ru&x=$_[0]&y=$_[1]&z=$_[2]"
+				. "/kh/v=83&hl=ru&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3857',
 		format => 'jpg',
