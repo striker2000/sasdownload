@@ -23,7 +23,8 @@ my $sources = {
 	},
 	yamapng => {
 		url => sub {
-			'http://vec' . sprintf( '%02d', 1 + int( rand(3) ) ) . '.maps.yandex.net'
+			'http://vec' . sprintf( '%02d', 1 + int( rand(3) ) )
+				. '.maps.yandex.net'
 				. "/tiles?l=map&v=2.19.5&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3395',
@@ -31,7 +32,8 @@ my $sources = {
 	},
 	yasat => {
 		url => sub {
-			'http://sat' . sprintf( '%02d', 1 + int( rand(3) ) ) . '.maps.yandex.net'
+			'http://sat' . sprintf( '%02d', 1 + int( rand(3) ) )
+				. '.maps.yandex.net'
 				. "/tiles?l=sat&v=1.24.0&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3395',
