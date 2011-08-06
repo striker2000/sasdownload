@@ -3,7 +3,7 @@ sasdownload
 
 Perl script for downloading raster maps tiles in SAS.Planet cache format.
 
-[SAS.Planet][http://sasgis.ru/sasplaneta/] is a freeware program, which allows
+[SAS.Planet](http://sasgis.ru/sasplaneta/) is a freeware program, which allows
 download and view raster maps from many sources such as Google Maps, Yandex
 Maps, OpenStreetMap, etc.
 
