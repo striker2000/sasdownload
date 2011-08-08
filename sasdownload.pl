@@ -68,6 +68,29 @@ my $sources = {
 		proj => 'epsg:3857',
 		format => 'png',
 	},
+	ksmapnew => {
+		url => sub {
+			'http://maps.kosmosnimki.ru'
+				. '/TileSender.ashx?ModeKey=tile&MapName=Kosmosnimki'
+				. '&LayerName=E50931C3B2DD4E0FA2C03366552EEAA1'
+				. "&z=$_[2]"
+				. '&x=' . ( $_[0] - 2 ** $_[2] / 2 )
+				. '&y=' . ( -( $_[1] + 1 ) - 2 ** $_[2] / 2 + 2 ** $_[2] )
+				. '&key=BDY%2F%2Brk8pOLTOFTvDC8MM54h%2BJCcGG5'
+				. 'Ag4ggD01W%2FCr51iFE%2FWOBxtA%2FNSJflAbDKbr'
+				. '1oV1QtDMt2PxGE3P2MY%2FzVabjK3O%2F1c2tlRmsd'
+				. 'YXnVvAs0%2BHPXruvQ6d%2F6Th8fR5n%2FNmtg8cnw'
+				. 'flfHfXxBcFzDy0qet4SdpQs6Gd55g94YiFckoi%2FU'
+				. 'royw7YvtvdbFgiNY%2BONEZK4ligXKR1rcVooBnEpH'
+				. 'hPqAjayL0pNPyXGzQUBYYePUOTfxS2Nnp4JyvAYuJQ'
+				. 'JtgMUaOlnsPINj77HNpMVTUmaqM4PT%2Bv00l8%3D'
+		},
+		headers => {
+			Referer => 'http://kosmosnimki.ru/',
+		},
+		proj => 'epsg:3395',
+		format => 'png',
+	}
 };
 
 our ( $opt_b, $opt_c, $opt_m, $opt_z, $opt_D );
@@ -212,7 +235,8 @@ sub download_layer {
 			make_path( $dir ) unless -e $dir;
 
 			my $url = $sources->{ $map }->{url}( $x, $y, $zoom - 1 );
-			my $res = $ua->get( $url, ':content_file' => $file );
+			my $headers = $sources->{ $map }->{headers};
+			my $res = $ua->get( $url, %$headers, ':content_file' => $file );
 			if ( $res->is_success ) {
 				$exist++;
 			}
