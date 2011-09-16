@@ -25,7 +25,7 @@ my $sources = {
 		url => sub {
 			'http://vec' . sprintf( '%02d', 1 + int( rand(3) ) )
 				. '.maps.yandex.net'
-				. "/tiles?l=map&v=2.19.5&x=$_[0]&y=$_[1]&z=$_[2]"
+				. "/tiles?l=map&v=2.20.0&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3395',
 		format => 'png',
@@ -34,7 +34,7 @@ my $sources = {
 		url => sub {
 			'http://sat' . sprintf( '%02d', 1 + int( rand(3) ) )
 				. '.maps.yandex.net'
-				. "/tiles?l=sat&v=1.26.0&x=$_[0]&y=$_[1]&z=$_[2]"
+				. "/tiles?l=sat&v=1.27.0&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3395',
 		format => 'jpg',
@@ -42,7 +42,7 @@ my $sources = {
 	sat => {
 		url => sub {
 			'http://khm' . int( rand(4) ) . '.google.com'
-				. "/kh/v=89&hl=ru&x=$_[0]&y=$_[1]&z=$_[2]"
+				. "/kh/v=92&hl=ru&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3857',
 		format => 'jpg',
