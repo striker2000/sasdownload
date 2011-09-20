@@ -34,7 +34,7 @@ my $sources = {
 		url => sub {
 			'http://sat' . sprintf( '%02d', 1 + int( rand(3) ) )
 				. '.maps.yandex.net'
-				. "/tiles?l=sat&v=1.27.0&x=$_[0]&y=$_[1]&z=$_[2]"
+				. "/tiles?l=sat&v=1.28.0&x=$_[0]&y=$_[1]&z=$_[2]"
 		},
 		proj => 'epsg:3395',
 		format => 'jpg',
